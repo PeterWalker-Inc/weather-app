@@ -45,7 +45,6 @@ app.get('/weather', (req, res) => {
                 error: error,
             });
         }
-        console.log(latitude, longitude , location);
         forecast(latitude, longitude, (error, forecastData) => {
             if (error){
                 return res.send({
@@ -74,17 +73,6 @@ app.get('/help/*', (req, res) => {
         title: "404",
         errorMessage: "Help Article not found",
         name: "Peter",
-    });
-});
-
-app.get('/products', (req, res) => {
-    if (!req.query.search) {
-        return res.send({
-            error: "You must provide a search term",
-        });
-    }
-    res.send({
-        products: [],
     });
 });
 
